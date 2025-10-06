@@ -1,11 +1,18 @@
-export default function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+'use client'
+
+import { ReactNode } from 'react'
+import { AuthProvider } from '@/hooks/useAuth'
+
+interface AdminLayoutProps {
+  children: ReactNode
+}
+
+export default function AdminLayout({ children }: AdminLayoutProps) {
   return (
-    <div>
-      {children}
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-gray-900">
+        {children}
+      </div>
+    </AuthProvider>
   )
 }
